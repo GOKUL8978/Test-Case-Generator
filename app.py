@@ -3,9 +3,6 @@ import os
 import requests
 from groq import Groq
 import json
-from dotenv import load_dotenv
-
-load_dotenv()
 
 if 'response' not in st.session_state:
     st.session_state['response'] = ""
