@@ -13,7 +13,7 @@ def generate_groq_test_cases(json_input,http_method,api_url):
     try:
         # This is a mock structure, adjust the client setup and call as per the real Groq API SDK
         client = Groq(
-            api_key=os.os.environ.get('GROQ_API_KEY')
+            api_key=os.environ.get('GROQ_API_KEY')
 )
         
         # Send the JSON input to Groq to generate JavaScript test cases
