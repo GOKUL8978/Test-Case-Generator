@@ -40,7 +40,7 @@ def generate_groq_test_cases(json_input,http_method,api_url):
 
 
 # Streamlit app title
-st.title("API Request Tester")
+st.title("Test case generator")
 
 # Input for API URL
 api_url = st.text_input("Enter the API URL")
