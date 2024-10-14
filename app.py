@@ -21,7 +21,7 @@ def generate_groq_test_cases(json_input,http_method,api_url):
             messages=[
                 {
                     "role": "user",
-                    "content": f"Generate JavaScript test cases that is compatible for postman for the following JSON data: {json_input} for api url {api_url} and http method : {http_method}""Output **only** the code without any explanation or comments.",
+                     "content": f"Generate the test cases in javascript that is compatible for postman by using this response JSON data from api: {json_input} for api url {api_url} and http method : {http_method}" "Output **only** the code without any explanation or comments.",
                 }
             ],
             model="llama3-groq-70b-8192-tool-use-preview",  # Example model, adjust as necessary
@@ -54,11 +54,11 @@ request_body = st.text_area("Enter the request body (for POST/PUT)", "", height=
 # Send button
 if st.button("Send"):
     try:
-        # Perform the selected HTTP request
+        headers = {'Content-Type': 'application/json'}
         if http_method == "GET":
             response = requests.get(api_url)
         elif http_method == "POST":
-            response = requests.post(api_url, data=request_body)
+            response = requests.post(api_url, json=json.loads(request_body), headers=headers)
         elif http_method == "PUT":
             response = requests.put(api_url, data=request_body)
         elif http_method == "DELETE":
